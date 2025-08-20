@@ -40,7 +40,7 @@ export default function Team() {
     {
       id: 1,
       name: "Mann Shah",
-      role: "Committee Head",
+      role: "Council Head",
       category: "Core",
       description: "Chief of Breaking Things and Fixing Them at 2 AM",
       // photo: "/mann.jpg",
@@ -51,7 +51,7 @@ export default function Team() {
     {
       id: 2,
       name: "Siddharth Chintawar",
-      role: "Committee Head",
+      role: "Council Head",
       category: "Core",
       // photo: "/siddarth.jpg",
       description: "Steering the ship, barely",
