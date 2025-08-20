@@ -160,7 +160,7 @@ export default function Team() {
     },
     {
       id: 12,
-      name: "Saam Patil",
+      name: "Saanj Patil",
       role: "Creative Member",
       category: "Content",
       description: "Ensuring the safety and security of systems.",
