@@ -19,7 +19,7 @@ interface TeamMember {
   github: string;
   linkedin: string;
   instagram: string;
-  photo?: string;
+  photo?: string; // Keeping the field, but we'll disable its usage
 }
 
 export default function Team() {
@@ -43,7 +43,7 @@ export default function Team() {
       role: "Committee Head",
       category: "Core",
       description: "Chief of Breaking Things and Fixing Them at 2 AM",
-      photo: "/mann.jpg",
+      // photo: "/mann.jpg",
       github: "https://github.com/mannn13",
       linkedin: "https://www.linkedin.com/in/mann-shah-3940a3278/",
       instagram: "https://www.instagram.com/m.annn13/",
@@ -53,7 +53,7 @@ export default function Team() {
       name: "Siddharth Chintawar",
       role: "Committee Head",
       category: "Core",
-      photo: "/siddarth.jpg",
+      // photo: "/siddarth.jpg",
       description: "Steering the ship, barely",
       github: "https://github.com/sidc124",
       linkedin: "https://www.linkedin.com/in/siddharth-chintawar-a76366291/",
@@ -591,27 +591,10 @@ export default function Team() {
                       {/* Profile circle at top */}
                       <div className="team-avatar-container">
                         <div className="team-avatar">
-                          {member.photo ? (
-                            <img
-                              src={member.photo}
-                              alt={member.name}
-                              className="w-full h-full object-cover rounded-full"
-                              onError={(e) => {
-                                // If image fails to load, show initials instead
-                                const target = e.currentTarget;
-                                const parent = target.parentElement;
-                                if (parent) {
-                                  parent.innerHTML = `<div class="team-avatar-initials">${getInitials(
-                                    member.name
-                                  )}</div>`;
-                                }
-                              }}
-                            />
-                          ) : (
-                            <div className="team-avatar-initials">
-                              {getInitials(member.name)}
-                            </div>
-                          )}
+                          {/* Photos are disabled, always show initials */}
+                          <div className="team-avatar-initials">
+                            {getInitials(member.name)}
+                          </div>
                         </div>
                       </div>
 
