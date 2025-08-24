@@ -340,6 +340,9 @@ export default function Resources() {
   useEffect(() => {
     document.title = "Resources - DataZen";
     
+    // Scroll to top when component mounts
+    window.scrollTo(0, 0);
+    
     const handleScroll = () => {
       if (window.scrollY > 300) {
         setShowBackToTop(true);
