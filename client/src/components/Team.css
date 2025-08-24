@@ -7,13 +7,13 @@
   border: 1px solid rgba(var(--primary), 0.3);
   box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  min-height: 420px;
+  height: 480px;
   margin-top: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  justify-content: flex-start;
+  padding: 2rem 1.5rem;
 }
 
 .dark .team-member-card {
@@ -79,29 +79,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex: 1;
   width: 100%;
   text-align: center;
   margin-top: 0.5rem;
+  min-height: 0;
 }
 
 .team-name {
   font-size: 1.25rem;
   font-weight: 700;
   color: hsl(var(--foreground));
+  margin-bottom: 0.25rem;
 }
 
 .team-role {
   color: hsl(var(--primary));
   font-weight: 500;
+  margin-bottom: 0.5rem;
 }
 
 .team-divider {
   height: 0.125rem;
   width: 4rem;
   background-color: hsl(var(--primary));
-  margin: 0.75rem 0;
+  margin: 0.5rem 0;
 }
 
 .team-category {
@@ -112,7 +115,7 @@
   color: hsl(var(--primary));
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 /* Social icons */

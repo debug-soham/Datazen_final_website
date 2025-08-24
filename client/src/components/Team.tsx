@@ -549,28 +549,28 @@ export default function Team() {
                       </div>
 
                       <div className="team-content">
-                        <h3 className="team-name">{member.name}</h3>
-                        <p className="team-role">{member.role}</p>
+                        <div className="flex flex-col items-center">
+                          <h3 className="team-name">{member.name}</h3>
+                          <p className="team-role">{member.role}</p>
 
-                        {/* Red horizontal line */}
-                        <div className="team-divider"></div>
+                          {/* Red horizontal line */}
+                          <div className="team-divider"></div>
 
-                        {/* Category badge */}
-                        <div className="mb-4">
+                          {/* Category badge */}
                           <span className="team-category">
                             {member.category}
                           </span>
                         </div>
 
-                        {/* Description */}
-                        <div className="mb-6">
-                          <p className="text-muted-foreground text-sm leading-relaxed italic">
+                        {/* Description - Fixed height container */}
+                        <div className="flex-1 flex items-center justify-center px-2 min-h-[4rem]">
+                          <p className="text-muted-foreground text-sm leading-relaxed italic text-center line-clamp-3">
                             "{member.description}"
                           </p>
                         </div>
 
                         {/* Social Links */}
-                        <div className="flex justify-center gap-3">
+                        <div className="flex justify-center gap-3 mt-auto">
                           <a
                             href={member.github}
                             target="_blank"
