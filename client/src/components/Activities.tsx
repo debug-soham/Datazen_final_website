@@ -246,12 +246,18 @@ export default function Activities() {
             </motion.ul>
             
             <motion.button 
-              onClick={() => window.open("#")}
-              className="bg-white text-[var(--power-red)] font-medium px-6 py-2 rounded-lg shadow-lg hover:bg-white/90 transition-all flex items-center gap-2"
+              onClick={() => window.open("https://www.datathon2025.com/")}
+              className="bg-white text-[var(--power-red)] font-medium px-6 py-2 rounded-lg shadow-lg transition-all duration-150 ease-in-out flex items-center gap-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.9 }}
-              whileHover={{ y: -3 }}
+              whileHover={{ 
+                y: -2, 
+                scale: 1.02,
+                boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
+                transition: { duration: 0.12, ease: "easeInOut" }
+              }}
+              whileTap={{ scale: 0.98 }}
             >
               Learn More <ArrowRight size={16} />
             </motion.button>
@@ -272,17 +278,17 @@ export default function Activities() {
       
       {/* Decorative elements */}
       <motion.div 
-        className="absolute top-[10%] right-[15%] w-48 h-48 rounded-full bg-[var(--power-red)] opacity-5"
+        className="absolute top-[10%] right-[15%] w-48 h-48 rounded-full bg-[var(--power-red)] opacity-5 z-0"
         style={{ y: y1 }}
       />
       
       <motion.div 
-        className="absolute top-[60%] left-[10%] w-64 h-64 rounded-full bg-[var(--vitality-red)] opacity-5"
+        className="absolute top-[60%] left-[10%] w-64 h-64 rounded-full bg-[var(--vitality-red)] opacity-5 z-0"
         style={{ y: y2 }}
       />
       
       <motion.div 
-        className="absolute bottom-[20%] right-[20%] w-32 h-32 rounded-full bg-[var(--somaiya-black)] opacity-5"
+        className="absolute bottom-[20%] right-[20%] w-32 h-32 rounded-full bg-[var(--somaiya-black)] opacity-5 z-0"
         style={{ y: y3 }}
       />
       
@@ -332,11 +338,21 @@ export default function Activities() {
 
         {/* Featured Initiative */}
         <motion.div 
-          className="mb-24 rounded-xl overflow-hidden shadow-2xl"
+          className="mb-24 rounded-xl overflow-hidden shadow-2xl relative z-20"
           initial={{ opacity: 0, y: 40 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 40 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          whileHover={{ y: -5 }}
+          whileHover={{ 
+            y: -5,
+            scale: 1.01,
+            transition: { duration: 0.15, ease: "easeInOut" }
+          }}
+          whileTap={{ scale: 0.98 }}
+          style={{ 
+            willChange: 'transform',
+            backfaceVisibility: 'hidden',
+            transform: 'translateZ(0)'
+          }}
         >
           <div className="h-[450px]">
             <DataVisualization />
@@ -345,7 +361,7 @@ export default function Activities() {
 
         {/* Activity Cards */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
           variants={containerAnimation}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -353,30 +369,53 @@ export default function Activities() {
           {activities.map((activity, index) => (
             <motion.div 
               key={index}
-              className="bg-card border border-border rounded-xl shadow-sm overflow-hidden hover:shadow-xl transition-all duration-300"
+              className="bg-card border border-border rounded-xl shadow-sm overflow-hidden transition-shadow duration-150 ease-in-out relative z-20"
               variants={cardAnimation}
-              whileHover={{ y: -8, transition: { duration: 0.2 } }}
+              whileHover={{ 
+                y: -6, 
+                scale: 1.02,
+                transition: { 
+                  duration: 0.12, 
+                  ease: "easeInOut",
+                  type: "tween"
+                } 
+              }}
+              whileTap={{ scale: 0.98 }}
+              style={{ 
+                willChange: 'transform',
+                backfaceVisibility: 'hidden',
+                transform: 'translateZ(0)'
+              }}
             >
-              <div className="p-6">
-                <div 
-                  className="w-12 h-12 rounded-lg mb-6 flex items-center justify-center"
+              <div className="p-6 h-full">
+                <motion.div 
+                  className="w-12 h-12 rounded-lg mb-6 flex items-center justify-center transition-all duration-150 ease-in-out"
                   style={{ 
                     backgroundColor: `${activity.color}10`,
                     color: activity.color 
                   }}
+                  whileHover={{
+                    scale: 1.1,
+                    backgroundColor: `${activity.color}20`,
+                    transition: { duration: 0.12, ease: "easeInOut" }
+                  }}
                 >
                   {activity.icon}
-                </div>
+                </motion.div>
                 
-                <h3 className="text-xl font-bold mb-3">{activity.title}</h3>
+                <h3 className="text-xl font-bold mb-3 transition-colors duration-150 ease-in-out">{activity.title}</h3>
                 
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground mb-6 transition-colors duration-150 ease-in-out">
                   {activity.description}
                 </p>
                 
-                <div 
+                <motion.div 
                   className="h-1 w-12"
                   style={{ background: activity.color }}
+                  whileHover={{
+                    width: "3rem",
+                    transition: { duration: 0.12, ease: "easeInOut" }
+                  }}
                 />
               </div>
             </motion.div>
