@@ -19,7 +19,7 @@ interface TeamMember {
   github: string;
   linkedin: string;
   instagram: string;
-  photo?: string; // Keeping the field, but we'll disable its usage
+  photo: string; // Keeping the field, but we'll disable its usage
 }
 
 export default function Team() {
@@ -43,7 +43,7 @@ export default function Team() {
       role: "Council Head",
       category: "Core",
       description: "Chief of Breaking Things and Fixing Them at 2 AM",
-      // photo: "/mann.jpg",
+      photo: "/mann.jpg",
       github: "https://github.com/mannn13",
       linkedin: "https://www.linkedin.com/in/mann-shah-3940a3278/",
       instagram: "https://www.instagram.com/m.annn13/",
@@ -53,7 +53,7 @@ export default function Team() {
       name: "Siddharth Chintawar",
       role: "Council Head",
       category: "Core",
-      // photo: "/siddarth.jpg",
+      photo: "/siddarth.jpg",
       description: "Steering the ship, barely",
       github: "https://github.com/sidc124",
       linkedin: "https://www.linkedin.com/in/siddharth-chintawar-a76366291/",
@@ -65,7 +65,7 @@ export default function Team() {
       role: "Tech Head",
       category: "Tech",
       description: "Writing code that works… on the second try",
-      photo: "/shubham.png",
+      photo: "/shubham.jpg",
       github: "https://github.com/Thesilentprogramer",
       linkedin: "https://www.linkedin.com/in/shubham-indulkar-7804561b3/",
       instagram: "https://www.instagram.com/_shubh.13",
@@ -76,7 +76,7 @@ export default function Team() {
       role: "Tech Member",
       category: "Tech",
       description: "Turning ideas into URLs",
-      photo: "/ishika.png",
+      photo: "/ishika.jpg",
       github: "https://github.com/ishikabhoyar/",
       linkedin: "https://www.linkedin.com/in/ishikabhoyar/",
       instagram: "https://www.instagram.com/ishika.bhoyar?igsh=OGtmdGR1anc3aHE%3D&utm_source=qr",
@@ -109,7 +109,7 @@ export default function Team() {
       role: "Tech Member",
       category: "Tech",
       description: "Turning data into decisions",
-      photo: "/lakshya.png",
+      photo: "/Lakshya.PNG",
       github: "https://github.com/Lakshyyaaa",
       linkedin: "https://www.linkedin.com/in/lakshya-santani-021612292/",
       instagram: "https://www.instagram.com/lakshyyaaa._/profilecard/?igsh=M2x3azNoc25naTFw",
@@ -132,7 +132,7 @@ export default function Team() {
       role: "Creative Member",
       category: "Creative",
       description: "Designing visual experiences",
-      photo: "/riyagupta.jpg",
+      photo: "/riya.jpg",
       github: "https://github.com/riyaa-g",
       linkedin: "https://www.linkedin.com/in/riyagupta70/",
       instagram: "https://www.instagram.com/_riyaya_07/",
@@ -143,7 +143,7 @@ export default function Team() {
       role: "Creative Member",
       category: "Creative",
       description: "Exploring stories through data.",
-      photo: "/sachi.jpg",
+      photo: "/saachi.jpg",
       github: "https://github.com/Sachi1312",
       linkedin: "https://www.linkedin.com/in/sachi-parekh-427239263/",
       instagram: "https://www.instagram.com/sachi__parekh?igsh=YTU2YmQ0ZDhiNGMw",
@@ -244,7 +244,7 @@ export default function Team() {
       role: "Marketing Member",
       category: "Marketing",
       description: "Teaching machines to think (and sometimes overthink)",
-      photo: "/maahnal.jpg",
+      photo: "/manhal.jpg",
       github: "https://github.com/Maahnal",
       linkedin: "https://www.linkedin.com/in/maahnalchauhan5/",
       instagram: "https://www.instagram.com/maahnalc?igsh=ZTl1ZHFkaXBudWoz&utm_source=qr",
@@ -256,7 +256,7 @@ export default function Team() {
       role: "Operation Head",
       category: "Operations",
       description: "Efficiency expert",
-      photo: "/vedant.png",
+      photo: "/vedant.jpg",
       github: "https://github.com/vedantpadhy",
       linkedin: "https://www.linkedin.com/in/vedant-padhy/",
       instagram: "https://www.instagram.com/vedant.padhy/",
@@ -278,7 +278,7 @@ export default function Team() {
       role: "Operation Member",
       category: "Operations",
       description: "….",
-      photo: "/naman.png",
+      photo: "/naman.jpg",
       github: "https://github.com/naman616",
       linkedin: "https://www.linkedin.com/in/lodhanaman/",
       instagram: "https://www.instagram.com/naman.ld",
@@ -541,8 +541,26 @@ export default function Team() {
                       {/* Profile circle at top */}
                       <div className="team-avatar-container">
                         <div className="team-avatar">
-                          {/* Photos are disabled, always show initials */}
-                          <div className="team-avatar-initials">
+                          {/* Show photo if available, otherwise show initials */}
+                          {member.photo ? (
+                            <img 
+                              src={member.photo} 
+                              alt={member.name}
+                              className="w-full h-full object-cover rounded-full"
+                              onError={(e) => {
+                                // Fallback to initials if image fails to load
+                                e.currentTarget.style.display = 'none';
+                                const initialsDiv = e.currentTarget.nextElementSibling as HTMLElement;
+                                if (initialsDiv) {
+                                  initialsDiv.style.display = 'flex';
+                                }
+                              }}
+                            />
+                          ) : null}
+                          <div 
+                            className="team-avatar-initials"
+                            style={{ display: member.photo ? 'none' : 'flex' }}
+                          >
                             {getInitials(member.name)}
                           </div>
                         </div>
