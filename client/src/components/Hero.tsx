@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Sparkles, Users, ArrowRight } from "lucide-react";
 
 export default function Hero() {
   const controls = useAnimation();
@@ -265,6 +267,194 @@ export default function Hero() {
               </svg>
             </motion.div>
           </motion.div>
+        </motion.div>
+        
+        {/* Hiring Announcement Banner */}
+        <motion.div
+          className="mt-16 relative"
+          variants={itemVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {/* Clean gradient background with subtle animation */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[var(--power-red)]/5 via-transparent to-[var(--vitality-red)]/5 rounded-2xl border border-[var(--power-red)]/10 backdrop-blur-sm"></div>
+          
+          {/* Subtle floating particles */}
+          <div className="absolute inset-0 overflow-hidden rounded-2xl">
+            {Array.from({ length: 8 }, (_, i) => (
+              <motion.div
+                key={`particle-${i}`}
+                className="absolute w-1 h-1 bg-[var(--power-red)]/40 rounded-full"
+                style={{
+                  left: `${10 + i * 12}%`,
+                  top: `${20 + (i % 2) * 60}%`,
+                }}
+                animate={{
+                  y: [-10, 10, -10],
+                  opacity: [0.2, 0.6, 0.2],
+                }}
+                transition={{
+                  duration: 4 + i * 0.5,
+                  repeat: Infinity,
+                  delay: i * 0.5,
+                  ease: "easeInOut"
+                }}
+              />
+            ))}
+          </div>
+          
+          <div className="relative p-8 md:p-12 text-center">
+            {/* Clean announcement badge */}
+            <motion.div
+              className="inline-flex items-center gap-3 px-6 py-2 bg-[var(--power-red)]/10 backdrop-blur-sm rounded-full border border-[var(--power-red)]/20 mb-8"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+            >
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+              >
+                <Sparkles className="w-5 h-5 text-[var(--power-red)]" />
+              </motion.div>
+              <span className="text-[var(--power-red)] font-semibold tracking-wide">NOW HIRING</span>
+              <motion.div
+                className="w-2 h-2 bg-[var(--power-red)] rounded-full"
+                animate={{
+                  opacity: [0.4, 1, 0.4]
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              />
+            </motion.div>
+            
+            {/* Clear, readable headline */}
+            <motion.h2
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.8 }}
+            >
+              <span className="text-foreground">We Are Hiring </span>
+              <motion.span
+                className="bg-gradient-to-r from-[var(--power-red)] to-[var(--vitality-red)] bg-clip-text text-transparent"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.2, duration: 0.8 }}
+              >
+                FY Representatives!
+              </motion.span>
+            </motion.h2>
+            
+            {/* Clean subtitle */}
+            <motion.p
+              className="text-xl md:text-2xl text-muted-foreground mb-10 max-w-3xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.6 }}
+            >
+              Join our dynamic team and help shape the future of data science at Somaiya. 
+              Be the bridge between students and innovation.
+            </motion.p>
+            
+            {/* Professional action buttons */}
+            <motion.div
+              className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.4, duration: 0.6 }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-[var(--power-red)] to-[var(--vitality-red)] text-white font-semibold px-10 py-4 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 group text-lg"
+                >
+                  <a
+                    href="https://fy-rep.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3"
+                  >
+                    <Users className="w-5 h-5" />
+                    Apply Now
+                    <motion.div
+                      className="group-hover:translate-x-1 transition-transform duration-200"
+                    >
+                      <ArrowRight className="w-5 h-5" />
+                    </motion.div>
+                  </a>
+                </Button>
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+              </motion.div>
+            </motion.div>
+            
+            {/* Simple decorative elements */}
+            <motion.div
+              className="flex justify-center items-center gap-2 opacity-40"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.4 }}
+              transition={{ delay: 2, duration: 1 }}
+            >
+              {Array.from({ length: 5 }, (_, i) => (
+                <motion.div
+                  key={`dot-${i}`}
+                  className="w-2 h-2 rounded-full bg-[var(--power-red)]"
+                  animate={{
+                    scale: [1, 1.4, 1],
+                    opacity: [0.3, 0.8, 0.3]
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: i * 0.2,
+                    ease: "easeInOut"
+                  }}
+                />
+              ))}
+            </motion.div>
+          </div>
+          
+          {/* Subtle corner accents */}
+          <div className="absolute top-4 left-4">
+            <motion.div
+              className="w-8 h-8 border-l-2 border-t-2 border-[var(--power-red)]/30 rounded-tl-lg"
+              animate={{
+                opacity: [0.3, 0.7, 0.3]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          </div>
+          
+          <div className="absolute bottom-4 right-4">
+            <motion.div
+              className="w-8 h-8 border-r-2 border-b-2 border-[var(--power-red)]/30 rounded-br-lg"
+              animate={{
+                opacity: [0.3, 0.7, 0.3]
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                delay: 1.5,
+                ease: "easeInOut"
+              }}
+            />
+          </div>
         </motion.div>
       </div>
       

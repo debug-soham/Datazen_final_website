@@ -64,10 +64,7 @@ export default function Navbar() {
                 <a href="#timeline" className="font-medium hover:text-primary transition-colors">Timeline</a>
                 <a href="#team" className="font-medium hover:text-primary transition-colors">Team</a>
                 <Link href="/resources" className="font-medium hover:text-primary transition-colors">Resources</Link>
-                <Button 
-                  asChild 
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                >
+                <Button asChild>
                   <a 
                     href="https://fy-rep.vercel.app/" 
                     target="_blank" 
@@ -87,10 +84,7 @@ export default function Navbar() {
                 <Link href="/#timeline" className="font-medium hover:text-primary transition-colors">Timeline</Link>
                 <Link href="/#team" className="font-medium hover:text-primary transition-colors">Team</Link>
                 <Link href="/resources" className={`font-medium transition-colors ${location === '/resources' ? 'text-primary' : 'hover:text-primary'}`}>Resources</Link>
-                <Button 
-                  asChild 
-                  className="bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-                >
+                <Button asChild>
                   <a 
                     href="https://fy-rep.vercel.app/" 
                     target="_blank" 
@@ -168,10 +162,7 @@ export default function Navbar() {
                     Resources
                   </Link>
                   <div className="py-2 px-4">
-                    <Button 
-                      asChild 
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                    >
+                    <Button asChild className="w-full">
                       <a 
                         href="https://fy-rep.vercel.app/" 
                         target="_blank" 
@@ -232,10 +223,7 @@ export default function Navbar() {
                     Resources
                   </Link>
                   <div className="py-2 px-4">
-                    <Button 
-                      asChild 
-                      className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                    >
+                    <Button asChild className="w-full">
                       <a 
                         href="https://fy-rep.vercel.app/" 
                         target="_blank" 
