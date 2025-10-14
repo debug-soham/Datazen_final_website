@@ -36,9 +36,67 @@ const categories = [
 
 // Resource data
 const resources = [
-  // Tutorials
+  // DataZen Added Resources - Priority
   {
     id: 1,
+    title: "Machine Learning Visualizer",
+    description: "Interactive web application built with Streamlit for visualizing and understanding various machine learning algorithms and concepts.",
+    category: "Tools",
+    type: "tool",
+    level: "Beginner",
+    rating: 4.8,
+    url: "https://machine-learning-visualizer.streamlit.app/",
+    author: "DataZen Community",
+    tags: ["Machine Learning", "Visualization", "Interactive", "Educational", "Streamlit"],
+    featured: true,
+    dateAdded: "2024-10-14"
+  },
+  {
+    id: 2,
+    title: "DataZen Books Collection",
+    description: "Comprehensive collection of data science and machine learning books curated by DataZen team for enhanced learning.",
+    category: "Books",
+    type: "book",
+    level: "All Levels",
+    rating: 4.8,
+    url: "https://drive.google.com/drive/folders/1meblX2ZnX5FAWaHv7BbW8bjZLwRvb-OI",
+    author: "DataZen Team",
+    tags: ["Curated Collection", "Data Science", "Machine Learning", "Reference"],
+    featured: true,
+    dateAdded: "2024-10-14"
+  },
+  {
+    id: 3,
+    title: "Comprehensive Datasets Collection",
+    description: "A curated collection of diverse datasets spanning multiple domains including finance, healthcare, social media, and more for machine learning projects.",
+    category: "Datasets",
+    type: "dataset",
+    level: "All Levels",
+    rating: 4.6,
+    url: "https://github.com/MainakRepositor/Datasets/tree/master",
+    author: "MainakRepositor",
+    tags: ["Diverse Domains", "Machine Learning", "Finance", "Healthcare", "Social Media"],
+    featured: true,
+    dateAdded: "2024-10-14"
+  },
+  {
+    id: 4,
+    title: "Complete Data Science Course",
+    description: "Comprehensive data science playlist covering everything from basics to advanced topics with practical implementations.",
+    category: "Videos",
+    type: "video",
+    level: "All Levels",
+    rating: 4.7,
+    url: "https://youtube.com/playlist?list=PLKnIA16_Rmvbr7zKYQuBfsVkjoLcJgxHH&si=Z1skDkhGnyZX20iU",
+    author: "DataZen Curated",
+    tags: ["Complete Course", "Data Science", "Practical", "Comprehensive"],
+    featured: true,
+    dateAdded: "2024-10-14"
+  },
+
+  // Original Resources
+  {
+    id: 5,
     title: "Complete Python for Data Science",
     description: "A comprehensive guide covering Python fundamentals to advanced data science concepts including pandas, numpy, and scikit-learn.",
     category: "Tutorials",
@@ -53,6 +111,20 @@ const resources = [
   },
   {
     id: 2,
+    title: "Complete Python for Data Science",
+    description: "A comprehensive guide covering Python fundamentals to advanced data science concepts including pandas, numpy, and scikit-learn.",
+    category: "Tutorials",
+    type: "tutorial",
+    level: "Beginner",
+    rating: 4.8,
+    url: "https://www.kaggle.com/learn/python",
+    author: "Kaggle Learn",
+    tags: ["Python", "Pandas", "NumPy", "Data Analysis"],
+    featured: true,
+    dateAdded: "2024-01-15"
+  },
+  {
+    id: 6,
     title: "Machine Learning Crash Course",
     description: "Google's fast-paced, practical introduction to machine learning featuring TensorFlow APIs.",
     category: "Tutorials",
@@ -66,7 +138,7 @@ const resources = [
     dateAdded: "2024-02-01"
   },
   {
-    id: 3,
+    id: 7,
     title: "Data Visualization with D3.js",
     description: "Learn to create interactive and dynamic data visualizations using D3.js library.",
     category: "Tutorials",
@@ -82,7 +154,7 @@ const resources = [
 
   // Datasets
   {
-    id: 4,
+    id: 8,
     title: "UCI Machine Learning Repository",
     description: "A collection of databases, domain theories, and data generators used by the machine learning community.",
     category: "Datasets",
@@ -96,7 +168,7 @@ const resources = [
     dateAdded: "2024-01-10"
   },
   {
-    id: 5,
+    id: 9,
     title: "Kaggle Datasets",
     description: "Thousands of public datasets and data projects for practice and learning data science skills.",
     category: "Datasets",
@@ -110,7 +182,7 @@ const resources = [
     dateAdded: "2024-01-12"
   },
   {
-    id: 6,
+    id: 10,
     title: "COVID-19 Data Repository",
     description: "Novel Coronavirus (COVID-19) Cases, provided by JHU CSSE for research and analysis.",
     category: "Datasets",
@@ -126,7 +198,7 @@ const resources = [
 
   // Tools
   {
-    id: 7,
+    id: 11,
     title: "Jupyter Notebook",
     description: "An open-source web application for creating and sharing documents with live code, equations, and visualizations.",
     category: "Tools",
@@ -140,7 +212,7 @@ const resources = [
     dateAdded: "2024-01-05"
   },
   {
-    id: 8,
+    id: 12,
     title: "Tableau Public",
     description: "Free platform to publicly share and explore data visualizations online.",
     category: "Tools",
@@ -154,7 +226,7 @@ const resources = [
     dateAdded: "2024-01-08"
   },
   {
-    id: 9,
+    id: 13,
     title: "Apache Spark",
     description: "Unified analytics engine for large-scale data processing with built-in modules for SQL, streaming, and machine learning.",
     category: "Tools",
@@ -170,7 +242,7 @@ const resources = [
 
   // Books
   {
-    id: 10,
+    id: 14,
     title: "Hands-On Machine Learning",
     description: "Practical guide to machine learning with Scikit-Learn, Keras, and TensorFlow by Aurélien Géron.",
     category: "Books",
@@ -184,7 +256,7 @@ const resources = [
     dateAdded: "2024-01-25"
   },
   {
-    id: 11,
+    id: 15,
     title: "Python for Data Analysis",
     description: "Data wrangling with Pandas, NumPy, and IPython by Wes McKinney, creator of pandas.",
     category: "Books",
@@ -200,7 +272,7 @@ const resources = [
 
   // Videos
   {
-    id: 12,
+    id: 16,
     title: "3Blue1Brown Neural Networks",
     description: "Visual and intuitive explanation of neural networks and deep learning concepts.",
     category: "Videos",
@@ -214,7 +286,7 @@ const resources = [
     dateAdded: "2024-02-10"
   },
   {
-    id: 13,
+    id: 17,
     title: "StatQuest with Josh Starmer",
     description: "Statistics and machine learning concepts explained clearly and simply.",
     category: "Videos",
@@ -230,7 +302,7 @@ const resources = [
 
   // Courses
   {
-    id: 14,
+    id: 18,
     title: "CS50's Introduction to AI",
     description: "Harvard's introduction to artificial intelligence with Python covering search, knowledge, uncertainty, and machine learning.",
     category: "Courses",
@@ -244,7 +316,7 @@ const resources = [
     dateAdded: "2024-02-15"
   },
   {
-    id: 15,
+    id: 19,
     title: "Fast.ai Practical Deep Learning",
     description: "Practical deep learning for coders course focusing on getting results quickly.",
     category: "Courses",
@@ -260,7 +332,7 @@ const resources = [
 
   // Research Papers
   {
-    id: 16,
+    id: 20,
     title: "Attention Is All You Need",
     description: "The seminal paper introducing the Transformer architecture that revolutionized NLP.",
     category: "Research Papers",
@@ -276,7 +348,7 @@ const resources = [
 
   // DataZen Curated Resources
   {
-    id: 19,
+    id: 21,
     title: "DataZen AI/ML Resources Collection",
     description: "Comprehensive collection of AI and Machine Learning resources curated by the DataZen team, including tutorials, tools, papers, and learning paths.",
     category: "Tutorials",
@@ -292,7 +364,7 @@ const resources = [
 
   // Competitions
   {
-    id: 17,
+    id: 22,
     title: "Kaggle Competitions",
     description: "Data science competitions with real-world problems and cash prizes.",
     category: "Competitions",
@@ -306,7 +378,7 @@ const resources = [
     dateAdded: "2024-01-30"
   },
   {
-    id: 18,
+    id: 23,
     title: "DrivenData Competitions",
     description: "Data science competitions for social good, tackling challenges that matter.",
     category: "Competitions",
