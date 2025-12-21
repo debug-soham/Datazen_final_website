@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2, Send, ChevronRight, ChevronLeft, Check, User, Trophy, Lightbulb, Users, Info } from "lucide-react";
+import { apiRequest } from "@/lib/queryClient";
 
 // --- Validation Schemas ---
 
@@ -82,6 +83,7 @@ export default function Register() {
   const [previousStep, setPreviousStep] = useState(0);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [submitAttempted, setSubmitAttempted] = useState(false);
 
   const steps = [
     { id: 0, name: "Team Info", icon: Trophy },
@@ -99,7 +101,7 @@ export default function Register() {
     }
   });
 
-  const { register, control, trigger, handleSubmit, setValue, watch, formState: { errors, isSubmitted }, getValues, clearErrors } = form;
+  const { register, control, trigger, handleSubmit, setValue, watch, formState: { errors }, getValues, clearErrors } = form;
   const { fields, replace } = useFieldArray({ control, name: "members" });
   const [validatedSteps, setValidatedSteps] = useState<number[]>([]);
 
@@ -136,10 +138,32 @@ export default function Register() {
   };
 
   const onSubmit = async (data: FormData) => {
+    setSubmitAttempted(true);
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    
+    try {
+      const response = await apiRequest("POST", "/api/register", data);
+      const result = await response.json();
+      
+      if (result.success) {
+        setIsSuccess(true);
+        toast({
+          title: "Registration Successful!",
+          description: "Your team has been registered successfully.",
+          variant: "default",
+        });
+      } else {
+        throw new Error(result.message || "Registration failed");
+      }
+    } catch (error: any) {
+      toast({
+        title: "Registration Failed",
+        description: error.message || "An error occurred. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const variants = {
@@ -252,24 +276,24 @@ export default function Register() {
                                 <div className="space-y-2">
                                   <Label>Name</Label>
                                   <Input placeholder="Full Name" {...register("leaderName")} className="bg-background/50" />
-                                  {errors.leaderName && isSubmitted && <span className="text-xs text-red-500">{errors.leaderName.message}</span>}
+                                  {errors.leaderName && submitAttempted && <span className="text-xs text-red-500">{errors.leaderName.message}</span>}
                                 </div>
                                 <div className="space-y-2">
                                   <Label>Resume URL</Label>
                                   <Input placeholder="Drive Link" {...register("leaderResume")} className="bg-background/50" />
-                                  {errors.leaderResume && isSubmitted && <span className="text-xs text-red-500">{errors.leaderResume.message}</span>}
+                                  {errors.leaderResume && submitAttempted && <span className="text-xs text-red-500">{errors.leaderResume.message}</span>}
                                 </div>
                               </div>
                               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                   <Label>Email</Label>
                                   <Input type="email" placeholder="leader@somaiya.edu" {...register("email")} className="bg-background/50" />
-                                  {errors.email && isSubmitted && <span className="text-xs text-red-500">{errors.email.message}</span>}
+                                  {errors.email && submitAttempted && <span className="text-xs text-red-500">{errors.email.message}</span>}
                                 </div>
                                 <div className="space-y-2">
                                   <Label>Phone</Label>
                                   <Input placeholder="+91 XXXXX XXXXX" {...register("phone")} className="bg-background/50" />
-                                  {errors.phone && isSubmitted && <span className="text-xs text-red-500">{errors.phone.message}</span>}
+                                  {errors.phone && submitAttempted && <span className="text-xs text-red-500">{errors.phone.message}</span>}
                                 </div>
                               </div>
                             </div>
@@ -281,12 +305,12 @@ export default function Register() {
                                   <div className="space-y-2">
                                     <Label>Name</Label>
                                     <Input placeholder="Full Name" {...register(`members.${index}.name` as const)} className="bg-background/50" />
-                                    {errors.members?.[index]?.name && isSubmitted && <span className="text-xs text-red-500">{errors.members[index]?.name?.message}</span>}
+                                    {errors.members?.[index]?.name && submitAttempted && <span className="text-xs text-red-500">{errors.members[index]?.name?.message}</span>}
                                   </div>
                                   <div className="space-y-2">
                                     <Label>Resume URL</Label>
                                     <Input placeholder="Drive Link" {...register(`members.${index}.resume` as const)} className="bg-background/50" />
-                                    {errors.members?.[index]?.resume && isSubmitted && <span className="text-xs text-red-500">{errors.members[index]?.resume?.message}</span>}
+                                    {errors.members?.[index]?.resume && submitAttempted && <span className="text-xs text-red-500">{errors.members[index]?.resume?.message}</span>}
                                   </div>
                                 </div>
                               </div>

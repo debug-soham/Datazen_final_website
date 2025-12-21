@@ -101,7 +101,7 @@ export default function Home() {
               <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">
                 DataZen <br />
                 <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-power-red to-vitality-red">
-                  Case Study Competition 2024
+                  Case Study Competition 2026
                 </span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
@@ -116,7 +116,7 @@ export default function Home() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
-                <p className="text-sm text-muted-foreground mt-5">Team size: 1-4 members | Prize Pool: ₹10,000 + Certificates</p>
+                <p className="text-sm text-muted-foreground mt-5">Team size: 2 to 3 members | Prize Pool: ₹10,000 + Certificates</p>
               </div>
             </motion.div>
           </div>
