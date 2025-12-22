@@ -33,29 +33,29 @@ export default function Timeline() {
   
   const timelineItems = [
     {
-      year: "27th August 2024",
-      title: "DataZen Unplugged",
-      description: "Kickoff of the 2024-25 academic year with our annual orientation event, introducing new students to DataZen's mission, vision, and upcoming activities."
+      year: "3rd September 2025",
+      title: "ZenConnect '25",
+      description: "A sneak peek into the exciting realm of AI & Data with us. Meet the council, explore fun activities, get a roadmap on your data journey, network at a university level."
     },
     {
-      year: "10th to 16th September 2024",
-      title: "Datazen Trek",
+      year: "13th to 19th October 2025",
+      title: "Data Trek",
       description: "A week-long virtual trek exploring the latest trends in data science and AI, featuring guest speakers from industry leaders and hands-on workshops."
     },
-    {
-      year: "17th and 18th October 2024",
-      title: "Through The Lens",
-      description: "Hands-on workshop on Computer Vision techniques and applications, including image processing, object detection, and deep learning."
+    // {
+    //   year: "17th and 18th October 2024",
+    //   title: "Through The Lens",
+    //   description: "Hands-on workshop on Computer Vision techniques and applications, including image processing, object detection, and deep learning."
      
-    },
+    // },
     {
-      year: "25th Jan 2025",
+      year: "17th January 2026",
       title: "Case Study Competition",
       description: "A competition where the students analyze and visualize the data using Tableau, showcasing their skills in data storytelling and insights."
      
     },
     {
-      year: "1st and 2nd February 2025",
+      year: "7th and 8th February 2026",
       title: "Datathon 2026",
       description: "Our flagship 48 hour Data Science and AI/ML based hackathon with a prize pool of over 2 lakhs and a footfall of over 1000 students."
     },
@@ -126,7 +126,7 @@ export default function Timeline() {
           >
             <span className="text-foreground">Events </span>
             <span className="text-gradient">Calendar</span>
-            <span className="text-foreground"> 2024-25</span>
+            <span className="text-foreground"> 2025-26  </span>
           </motion.h2>
           
           <motion.p 

@@ -98,19 +98,12 @@ export default function Footer() {
   // Logo component with animated elements
   const Logo = () => (
     <div className="flex items-center space-x-2">
-      <div className="relative w-10 h-10 bg-gradient-red rounded-lg overflow-hidden flex items-center justify-center">
-        <motion.div 
-          className="absolute inset-0 opacity-30"
-          animate={{ 
-            background: [
-              'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.5) 0%, transparent 70%)',
-              'radial-gradient(circle at 70% 70%, rgba(255,255,255,0.5) 0%, transparent 70%)'
-            ]
-          }}
-          transition={{ duration: 3, repeat: Infinity, repeatType: "reverse" }}
-        />
-        <span className="text-white text-xl font-bold">DZ</span>
-      </div>
+      <img 
+        src="/logo.png"   
+        alt="DataZen Logo" 
+        className="w-12 h-12 object-contain" 
+      />
+      
       <div className="text-white font-bold text-2xl tracking-tight">
         Data<span className="text-[var(--vitality-red)]">Zen</span>
       </div>
