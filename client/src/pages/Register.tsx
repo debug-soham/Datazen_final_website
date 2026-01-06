@@ -195,7 +195,7 @@ export default function Register() {
             <div className="space-y-4 pt-4">
               <div className="flex items-center gap-4 p-4 rounded-lg bg-card/50 border border-border backdrop-blur-sm">
                 <div className="h-10 w-10 rounded-full bg-power-red/10 flex items-center justify-center text-power-red"><Trophy size={20} /></div>
-                <div><h3 className="font-semibold">Prize Pool</h3><p className="text-sm text-muted-foreground">Worth ₹10,000 + Certificates</p></div>
+                <div><h3 className="font-semibold">Prize Pool</h3><p className="text-sm text-muted-foreground">Worth ₹50,000 + Certificates</p></div>
               </div>
               {/* <div className="flex items-center gap-4 p-4 rounded-lg bg-card/50 border border-border backdrop-blur-sm">
                 <div className="h-10 w-10 rounded-full bg-vitality-red/10 flex items-center justify-center text-vitality-red"><Lightbulb size={20} /></div>
